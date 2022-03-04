@@ -17,7 +17,7 @@ const derivePubkey = (address: string, index = 0): Uint8Array => {
   );
   const pubkey = decodeAddress(address);
   payload.set(pubkey, prefix.length);
-  // have to set the bytes manually, little endian encoding
+  // have to set the bytes manually, big endian encoding
   const indexBytes = numberToByteArray(index);
   payload[prefix.length + 32] = indexBytes[0];
   payload[prefix.length + 33] = indexBytes[1];
